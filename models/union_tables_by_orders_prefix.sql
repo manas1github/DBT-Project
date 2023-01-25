@@ -2,7 +2,7 @@
 
       database='raw',
       schema='dbt_learn_jinja', 
-      prefix='orders_'
+      prefix='orders__'
         
       )
       
