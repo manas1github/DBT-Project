@@ -2,7 +2,8 @@
 
   {% set all %}
 
-    USE ROLE ACCOUNTADMIN; 
+    USE ROLE SECURITYADMIN;
+    CREATE ROLE IF NOT EXISTS {{role}};
     GRANT ALL ON WAREHOUSE {{warehouse}} TO ROLE {{role}};
     GRANT OWNERSHIP ON DATABASE {{database}} TO ROLE {{role}};
     GRANT ALL ON DATABASE {{database}} TO ROLE {{role}};
@@ -21,6 +22,7 @@
   {% set readonly %}
 
     USE ROLE SECURITYADMIN;
+    CREATE ROLE IF NOT EXISTS {{role}};
     GRANT USAGE ON WAREHOUSE {{warehouse}} TO ROLE {{role}};
     GRANT USAGE ON DATABASE {{database}} TO ROLE {{role}};
     GRANT USAGE ON ALL SCHEMAS IN DATABASE {{database}} TO ROLE {{role}};
@@ -35,6 +37,7 @@
   {% set selected %}
 
     USE ROLE SECURITYADMIN;
+    CREATE ROLE IF NOT EXISTS {{role}};
     GRANT ALL ON WAREHOUSE {{warehouse}} TO {{role}};
     GRANT OWNERSHIP ON DATABASE {{database}} TO ROLE {{role}};
     GRANT ALL ON DATABASE {{database}} TO ROLE {{role}};
